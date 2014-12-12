@@ -17,5 +17,8 @@ WORKDIR /opt/zookeeper-3.4.6
 
 VOLUME ["/opt/zookeeper-3.4.6/conf", "/tmp/zookeeper"]
 
-ENTRYPOINT ["/opt/zookeeper-3.4.6/bin/zkServer.sh"]
-CMD ["start-foreground"]
+RUN echo "forcesync=no" >> conf/zoo.cfg  
+
+# ENTRYPOINT ["/opt/zookeeper-3.4.6/bin/zkServer.sh"]
+# CMD ["start-foreground"]
+CMD ["/opt/zookeeper-3.4.6/bin/zkServer.sh", "start-foreground"]
